@@ -1,12 +1,14 @@
-import { useRouteError } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function Error() {
-    const error = useRouteError()
-    
-    return (
-        <>
-        <h1>Error: {error.message}</h1>
-        <pre>{error.status} - {error.statusText}</pre>
-        </>
-    )
+  return (
+    <div
+      className="container-fluid d-flex justify-content-between align-items-center flex-column"
+      style={{ marginTop: "20vh" }}
+    >
+      <h1>Error: Page Not Found</h1>
+      <pre>404 - Sorry, this page doesn't exists</pre>
+      <Link to={"/"}>Home</Link>
+    </div>
+  );
 }
