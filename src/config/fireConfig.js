@@ -4,14 +4,13 @@ import { getAnalytics } from "firebase/analytics";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDwP9NAH6-8qySyNoSiwGniOiiVOvjq1YE",
-    authDomain: "payroll-477f.firebaseapp.com",
-    projectId: "payroll-477f",
-    storageBucket: "payroll-477f.appspot.com",
-    messagingSenderId: "679167396327",
-    appId: "1:679167396327:web:9244ee4f027d34fef61542",
-    measurementId: "G-DX37K5WGZ5"
-  };
+  apiKey: "AIzaSyBawMx2MUVPICbGWGuJtzqYHfgAilioMrE",
+  authDomain: "payroller-b6a47.firebaseapp.com",
+  projectId: "payroller-b6a47",
+  storageBucket: "payroller-b6a47.appspot.com",
+  messagingSenderId: "755329311868",
+  appId: "1:755329311868:web:b2ca978dc24378062795f9"
+};
   
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
