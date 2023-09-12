@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+html, body {
+  font-family: "Inter", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.mytable::-webkit-scrollbar {
+  display: none !important;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.offcanvas-md .nav .nav-item a:hover {
+  background-color: aliceblue;
+  color: blue;
+}
+
+.payroll table tr{
+  position: relative;
+}
+.editbtn {
+  position: absolute;
+  top: 4px;
+  right: 40px;
+  display: none !important;
+}
+
+.payroll table tr:hover .editbtn {
+  display: block !important;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .mysidebar {
+    position: fixed !important;
+    height: 100% !important;
+  }
+}
