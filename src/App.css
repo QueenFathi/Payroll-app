@@ -17,7 +17,16 @@ body::-webkit-scrollbar {
 }
 
 .mytable::-webkit-scrollbar {
-  display: none !important;
+  height: 7px
+}
+
+.mytable::-webkit-scrollbar-thumb {
+  background-color: rgb(177, 177, 177);
+  border-radius: 5px;
+}
+
+.mytable::-webkit-scrollbar-track {
+  background-color: rgb(238, 238, 238);
 }
 
 body {
