@@ -102,11 +102,9 @@ export default function Layout({ loggedin }) {
           </button>
         </div>
         <div className="dropdown pe-3 text-end">
-          <Link
-            to=""
+          <div
             className="d-block link-body-emphasis dropdown-toggle"
             data-bs-toggle="dropdown"
-            aria-expanded="false"
           >
             <img
               src={logo}
@@ -115,9 +113,9 @@ export default function Layout({ loggedin }) {
               height="25"
               className="rounded-circle"
             />
-            {`${userData?.firstName} ${userData?.lastName}`}
             &nbsp;
-          </Link>
+            {`${userData?.firstName} ${userData?.lastName}`}
+          </div>
           <ul className="dropdown-menu dropdown-menu-end text-small">
             <li>
               <Link to="profile" className="dropdown-item" href="#">

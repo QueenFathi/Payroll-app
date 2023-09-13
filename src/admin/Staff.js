@@ -1,10 +1,4 @@
-import {
-  FaPlus,
-  FaSearch,
-  FaFilter,
-  FaShare,
-  FaDownload,
-} from "react-icons/fa";
+import { FaPlus, FaSearch } from "react-icons/fa";
 import { Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import {
@@ -13,6 +7,7 @@ import {
   doc,
   onSnapshot,
   query,
+  setDoc,
 } from "firebase/firestore";
 import { db } from "../config/fireConfig";
 import { toast } from "react-toastify";
@@ -59,6 +54,32 @@ export default function Staff() {
         .catch((err) => toast.error(err.code));
     }
   };
+  const staffID = () => {
+    let highestValueObject = tableData?.reduce((prev, current) => {
+      return Number(prev.id) > Number(current.id) ? prev : current;
+    });
+    let tempNum = Number(highestValueObject?.id) + 1;
+    return tempNum?.toString()?.padStart(4, "0");
+  };
+  const handleAddStaff = async (e) => {
+    e.preventDefault();
+
+    await setDoc(doc(db, "staffs", e.target.email.value.trim()), {
+      firstName: e.target.firstName.value.trim(),
+      lastName: e.target.lastName.value.trim(),
+      email: e.target.email.value.trim(),
+      department: e.target.department.value.trim(),
+      designation: e.target.designation.value.trim(),
+      phone: e.target.phone.value.trim(),
+      address: e.target.address.value.trim(),
+      avatar: "",
+      id: staffID(),
+    })
+      .then(() => {
+        toast.success("Staff Created");
+      })
+      .catch((err) => toast.error(err.code));
+  };
 
   const staffDataElements = tableData?.map((data) => (
     <tr key={data.id} className="text-nowrap">
@@ -72,7 +93,10 @@ export default function Staff() {
       <td>{data?.department}</td>
       <td>{data?.designation}</td>
       <td>
-        <button onClick={() => handleDetailShow(data)} className="btn btn-success">
+        <button
+          onClick={() => handleDetailShow(data)}
+          className="btn btn-success"
+        >
           View details
         </button>
       </td>
@@ -110,45 +134,88 @@ export default function Staff() {
         <Modal.Header closeButton>Add Staff Data</Modal.Header>
         <Modal.Body>
           <h5>Fill in all details on the new staff</h5>
-          <form>
+          <form onSubmit={handleAddStaff}>
             <div className="form-floating mb-2">
-              <input type="text" className="form-control" id="firstName" name="firstName" required />
-              <label for='firstName'>First Name</label>
+              <input
+                type="text"
+                className="form-control"
+                id="firstName"
+                name="firstName"
+                required
+              />
+              <label for="firstName">First Name</label>
             </div>
             <div className="form-floating mb-2">
-              <input type="text" className="form-control" id="lastName" name="lastName" required />
-              <label for='lastName'>Last Name</label>
+              <input
+                type="text"
+                className="form-control"
+                id="lastName"
+                name="lastName"
+                required
+              />
+              <label for="lastName">Last Name</label>
             </div>
             <div className="form-floating mb-2">
-              <input type="email" className="form-control" id="email" name="email" required />
-              <label for='email'>Email Address</label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name="email"
+                required
+              />
+              <label for="email">Email Address</label>
             </div>
             <div className="form-floating mb-2">
-              <input type="text" className="form-control" id="department" name="department" required />
-              <label for='department'>Department</label>
+              <input
+                type="text"
+                className="form-control"
+                id="department"
+                name="department"
+                required
+              />
+              <label for="department">Department</label>
             </div>
             <div className="form-floating mb-2">
-              <input type="text" className="form-control" id="designation" name="designation" required />
-              <label for='designation'>Designation</label>
+              <input
+                type="text"
+                className="form-control"
+                id="designation"
+                name="designation"
+                required
+              />
+              <label for="designation">Designation</label>
             </div>
             <div className="form-floating mb-2">
-              <input type="text" className="form-control" id="phone" name="phone" required />
-              <label for='phone'>Phone Number</label>
+              <input
+                type="text"
+                className="form-control"
+                id="phone"
+                name="phone"
+                required
+              />
+              <label for="phone">Phone Number</label>
             </div>
             <div className="form-floating mb-2">
-              <input type="text" className="form-control" id="address" name="address" required />
-              <label for='address'>Contact Adress</label>
+              <input
+                type="text"
+                className="form-control"
+                id="address"
+                name="address"
+                required
+              />
+              <label for="address">Contact Adress</label>
             </div>
-            <button className="btn btn-primary">
-              Add
-            </button>
+            <button className="btn btn-primary">Add</button>
           </form>
         </Modal.Body>
       </Modal>
       <div className="py-3 px-4">
         <div className="d-flex">
           <h4 className="me-auto">Employee Information</h4>
-          <button onClick={handleAddShow} className="btn btn-outline-secondary text-dark rounded-circle me-2">
+          <button
+            onClick={handleAddShow}
+            className="btn btn-outline-secondary text-dark rounded-circle me-2"
+          >
             <FaPlus />
           </button>
           <button
@@ -162,7 +229,10 @@ export default function Staff() {
           >
             <FaSearch />
           </button>
-          <select className="form-select py-1 border-secondary" style={{width: '150px'}}>
+          <select
+            className="form-select py-1 border-secondary"
+            style={{ width: "150px" }}
+          >
             <option selected>Sort By</option>
             <option>First Name</option>
             <option>Department</option>

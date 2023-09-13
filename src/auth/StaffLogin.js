@@ -1,23 +1,52 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  fetchSignInMethodsForEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { auth } from "../config/fireConfig";
+import { auth, db } from "../config/fireConfig";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function Login({ loggedin }) {
   const navigate = useNavigate();
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(
+    let signInMethods = await fetchSignInMethodsForEmail(
       auth,
-      e.target.email.value,
-      e.target.password.value
-    )
-      .then(() => {})
-      .catch((error) => {
-        toast.error(error.code);
-      });
+      e.target.email.value
+    );
+
+    if (signInMethods.length > 0) {
+      signInWithEmailAndPassword(
+        auth,
+        e.target.email.value,
+        e.target.password.value
+      )
+        .then(() => {})
+        .catch((error) => {
+          toast.error(error.code);
+        });
+    } else {
+      const docRef = doc(db, "staffs", e.target.email.value);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        createUserWithEmailAndPassword(
+          auth,
+          e.target.email.value,
+          e.target.password.value
+        )
+          .then(() => {})
+          .catch((error) => {
+            toast.error(error.code);
+          });
+      } else {
+        toast.error("Invalid credentials");
+      }
+    }
   };
   useEffect(() => {
     loggedin && navigate("/staff");
