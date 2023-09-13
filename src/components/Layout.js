@@ -108,7 +108,7 @@ export default function Layout({ loggedin }) {
             aria-expanded="false"
           >
             <img
-              src={logo}
+              src={userData?.avatar}
               alt="mdo"
               width="25"
               height="25"
@@ -161,7 +161,8 @@ export default function Layout({ loggedin }) {
                 <ul className="nav flex-column">
                   <li className="nav-item">
                     <NavLink
-                      to="/admin" end
+                      to="/admin"
+                      end
                       className="nav-link d-flex align-items-center gap-2 active"
                       aria-current="page"
                       style={({ isActive }) => (isActive ? activeStyles : null)}
@@ -229,7 +230,7 @@ export default function Layout({ loggedin }) {
             </div>
           </div>
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <Outlet />
+            <Outlet context={{ userData }} />
           </main>
         </div>
       </div>

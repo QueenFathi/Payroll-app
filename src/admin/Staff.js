@@ -80,6 +80,19 @@ export default function Staff() {
       })
       .catch((err) => toast.error(err.code));
   };
+  const handleSuspendStaff = async (email, status) => {
+    await setDoc(
+      doc(db, "staffs", email),
+      {
+        status: !status,
+      },
+      { merge: true }
+    )
+      .then(() => {
+        toast.success("Staff Status Changed");
+      })
+      .catch((err) => toast.error(err.code));
+  };
 
   const staffDataElements = tableData?.map((data) => (
     <tr key={data.id} className="text-nowrap">
@@ -92,20 +105,25 @@ export default function Staff() {
       <td>{data?.email}</td>
       <td>{data?.department}</td>
       <td>{data?.designation}</td>
-      <td>
+      <td>{data?.status ? "Active" : "Suspended"}</td>
+      <td style={{ display: "flex", columnGap: 3 }}>
         <button
           onClick={() => handleDetailShow(data)}
           className="btn btn-success"
         >
-          View details
+          View
         </button>
-      </td>
-      <td>
         <button
           className="btn btn-primary py-1"
+          onClick={() => handleSuspendStaff(data?.email, data?.status)}
+        >
+          {data?.status ? "Suspend" : "Activate"}
+        </button>
+        <button
+          className="btn btn-danger py-1"
           onClick={() => handleDelete(data?.email)}
         >
-          Delete Staff
+          Delete
         </button>
       </td>
     </tr>
@@ -205,7 +223,9 @@ export default function Staff() {
               />
               <label for="address">Contact Adress</label>
             </div>
-            <button className="btn btn-primary d-flex justify-self-end ms-auto me-1">Add</button>
+            <button className="btn btn-primary d-flex justify-self-end ms-auto me-1">
+              Add
+            </button>
           </form>
         </Modal.Body>
       </Modal>
@@ -258,8 +278,8 @@ export default function Staff() {
               <th scope="col">Email Adress</th>
               <th scope="col">Department</th>
               <th scope="col">Designation</th>
-              <th scope="col">Action</th>
               <th scope="col">Status</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>{staffDataElements}</tbody>
