@@ -9,7 +9,6 @@ import {
   FaDoorOpen,
 } from "react-icons/fa";
 import { BsFillFileSpreadsheetFill } from "react-icons/bs";
-import logo from "../img.jpeg";
 import { useEffect, useState } from "react";
 import { auth, db } from "../config/fireConfig";
 import { signOut } from "firebase/auth";
