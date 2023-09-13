@@ -7,7 +7,7 @@ export default function Payroll() {
   const [addShow, setAddShow] = useState(false);
 
   const handleAddClose = () => setAddShow(false);
-  const handleAddShow = (data) => setAddShow(true);
+  const handleAddShow = () => setAddShow(true);
 
   const dateBuilder = (d) => {
     let months = [
@@ -47,7 +47,7 @@ export default function Payroll() {
       <td>{data?.absence}</td>
       <td>{data?.pension}</td>
       <td>{data?.total}</td>
-      <button className="btn editbtn bg-primary text-white py-1">
+      <button className="btn editbtn bg-primary text-white py-1" onClick={handleAddShow}>
         <FaEdit /> edit
       </button>
     </tr>

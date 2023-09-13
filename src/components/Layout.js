@@ -87,24 +87,25 @@ export default function Layout({ loggedin }) {
             </Link>
           </li>
         </ul>
-        <div className="pe-3">
+        <div className="pe-4">
           <button
             type="button"
-            className="btn position-relative rounded-circle px-2 py-1"
+            className="btn position-relative rounded-circle p-0"
           >
             <FaBell />
             <span
               className="position-absolute top-0 translate-middle badge rounded-pill bg-danger p-1"
-              style={{ fontSize: "10px" }}
+              style={{ fontSize: "8px" }}
             >
               0
             </span>
           </button>
         </div>
-        <div className="dropdown pe-3 text-end">
-          <div
+        <div className="dropdown pe-4 text-end">
+          <Link
             className="d-block link-body-emphasis dropdown-toggle"
             data-bs-toggle="dropdown"
+            aria-expanded="false"
           >
             <img
               src={logo}
@@ -115,7 +116,7 @@ export default function Layout({ loggedin }) {
             />
             &nbsp;
             {`${userData?.firstName} ${userData?.lastName}`}
-          </div>
+          </Link>
           <ul className="dropdown-menu dropdown-menu-end text-small">
             <li>
               <Link to="profile" className="dropdown-item" href="#">
@@ -160,7 +161,7 @@ export default function Layout({ loggedin }) {
                 <ul className="nav flex-column">
                   <li className="nav-item">
                     <NavLink
-                      to="/admin"
+                      to="/admin" end
                       className="nav-link d-flex align-items-center gap-2 active"
                       aria-current="page"
                       style={({ isActive }) => (isActive ? activeStyles : null)}

@@ -86,23 +86,22 @@ export default function StaffLayout({ loggedin }) {
             </Link>
           </li>
         </ul>
-        <div className="pe-3">
+        <div className="pe-4">
           <button
             type="button"
-            className="btn position-relative rounded-circle px-2 py-1"
+            className="btn position-relative rounded-circle p-0"
           >
             <FaBell />
             <span
               className="position-absolute top-0 translate-middle badge rounded-pill bg-danger p-1"
-              style={{ fontSize: "10px" }}
+              style={{ fontSize: "8px" }}
             >
               0
             </span>
           </button>
         </div>
-        <div className="dropdown pe-3 text-end align-self-center d-none d-sm-block">
+        <div className="dropdown pe-4 text-end align-self-center d-none d-sm-block">
           <Link
-            to=""
             className="d-block link-body-emphasis dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"

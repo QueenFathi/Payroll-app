@@ -43,7 +43,7 @@ export default function Staff() {
   };
 
   const handleAddClose = () => setAddShow(false);
-  const handleAddShow = (data) => setAddShow(true);
+  const handleAddShow = () => setAddShow(true);
 
   const handleDelete = async (email) => {
     if (window.confirm("Are you sure you want to delete this staff?")) {
@@ -205,7 +205,7 @@ export default function Staff() {
               />
               <label for="address">Contact Adress</label>
             </div>
-            <button className="btn btn-primary">Add</button>
+            <button className="btn btn-primary d-flex justify-self-end ms-auto me-1">Add</button>
           </form>
         </Modal.Body>
       </Modal>
