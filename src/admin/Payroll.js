@@ -1,6 +1,14 @@
 import { FaEdit } from "react-icons/fa";
+import { data } from "../api"
+import { useState } from "react";
+import { Modal } from "bootstrap";
 
 export default function Payroll() {
+    const [addShow, setAddShow] = useState(false);
+
+    const handleAddClose = () => setAddShow(false);
+    const handleAddShow = (data) => setAddShow(true);
+
     const dateBuilder = (d) => {
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let month = months[d.getMonth()];
@@ -9,15 +17,49 @@ export default function Payroll() {
         return `${month} ${year}`
     }
 
+    const staffDataElements = data?.map((data) => (
+        <tr key={data.id} className="text-nowrap">
+            <td>{data?.firstName} {data?.lastName}</td>
+            <td>{data?.basic}</td>
+            <td>{data?.transport}</td>
+            <td>{data?.health}</td>
+            <td>{data?.children}</td>
+            <td>{data?.overtime}</td>
+            <td>{data?.bonus}</td>
+            <td>{data?.tax}</td>
+            <td>{data?.loan}</td>
+            <td>{data?.advance}</td>
+            <td>{data?.absence}</td>
+            <td>{data?.pension}</td>
+            <td>{data?.total}</td>
+            <button className='btn editbtn bg-primary text-white py-1'><FaEdit /> edit</button>
+        </tr>
+      ));
+
     return(
         <div className="payroll">
+            <Modal centered show={addShow} onHide={handleAddClose}>
+                <Modal.Header closeButton>Add Staff Data</Modal.Header>
+                <Modal.Body>
+                <h5>Edit Payroll Details</h5>
+                <form>
+                    <div className="form-floating mb-2">
+                        <input type="text" className="form-control" id="" name="" value="" required />
+                        <label for=''></label>
+                    </div>
+                    <button className="btn btn-primary">
+                        Save Changes
+                    </button>
+                </form>
+                </Modal.Body>
+            </Modal>
             <div className="mt-5">
                 <h4>{dateBuilder(new Date())} Payroll</h4>
             </div>
             <div className="mt-4 d-flex justify-content-between">   
                 <button type="button" className="btn btn-sm btn-outline-secondary">Suspended Employees <span className="badge text-bg-secondary">0</span></button>
                 <select className="form-select py-1 border-secondary" style={{width: '150px'}}>
-                    <option selected>Filter By</option>
+                    <option selected>Sort By</option>
                     <option>Name</option>
                     <option>Basic Salary</option>
                     <option>Net Pay</option>
@@ -66,69 +108,7 @@ export default function Payroll() {
                             <td>89,000</td>
                             <button className='btn editbtn bg-primary text-white py-1'><FaEdit /> edit</button>
                         </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>70,000</td>
-                            <td>0</td>
-                            <td>20,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>2,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>10,000</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>89,000</td>
-                            <button className='btn editbtn bg-primary text-white py-1'><FaEdit /> edit</button>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>70,000</td>
-                            <td>0</td>
-                            <td>20,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>2,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>10,000</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>89,000</td>
-                            <button className='btn editbtn bg-primary text-white py-1'><FaEdit /> edit</button>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>70,000</td>
-                            <td>0</td>
-                            <td>20,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>2,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>10,000</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>89,000</td>
-                            <button className='btn editbtn bg-primary text-white py-1'><FaEdit /> edit</button>
-                        </tr>
-                        <tr className="table-secondary">
-                            <td className="text-end">Total Amount</td>
-                            <td>70,000</td>
-                            <td>0</td>
-                            <td>20,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>2,000</td>
-                            <td>3,000</td>
-                            <td>0</td>
-                            <td>10,000</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>89,000</td>
-                        </tr>
+                        {staffDataElements}
                     </tbody>
                 </table>
             </div>

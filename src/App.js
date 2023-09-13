@@ -2,7 +2,6 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import Layout from "./components/Layout";
 import StaffLayout from "./components/Layout2";
 import Error from "./components/Error";
@@ -27,14 +26,8 @@ function App() {
   const [loggedin, setLoggedin] = useState(false);
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-
       setLoggedin(true);
-      // ...
     } else {
-      // User is signed out
-      // ...
       setLoggedin(false);
     }
   });

@@ -128,10 +128,8 @@ export default function StaffLayout({ loggedin }) {
             </li>
             <li>
               <div
-                to=""
                 onClick={handleSignout}
                 className="dropdown-item"
-                href="#"
               >
                 <FaDoorOpen /> Sign Out
               </div>

@@ -115,8 +115,8 @@ export default function Layout({ loggedin }) {
               height="25"
               className="rounded-circle"
             />
-            &nbsp;
             {`${userData?.firstName} ${userData?.lastName}`}
+            &nbsp;
           </Link>
           <ul className="dropdown-menu dropdown-menu-end text-small">
             <li>
@@ -128,7 +128,7 @@ export default function Layout({ loggedin }) {
               <hr className="dropdown-divider"></hr>
             </li>
             <li>
-              <div onClick={handleSignout} className="dropdown-item" href="#">
+              <div onClick={handleSignout} className="dropdown-item">
                 <FaDoorOpen /> Sign Out
               </div>
             </li>

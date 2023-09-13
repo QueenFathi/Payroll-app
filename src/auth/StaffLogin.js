@@ -4,6 +4,7 @@ import { auth } from "../config/fireConfig";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+
 export default function Login({ loggedin }) {
   const navigate = useNavigate();
   const handleLogin = (e) => {
