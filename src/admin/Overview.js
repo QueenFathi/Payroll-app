@@ -2,7 +2,7 @@ import { FaCalendarAlt } from 'react-icons/fa'
 
 function Card({bigtext, smalltext, color}) {
     return(
-        <div className={`card me-2 rounded text-center py-5 text-bg-${color}`}>
+        <div className={`card me-2 rounded text-center py-4 text-bg-${color}`}>
             <h1>{bigtext}</h1>
             <p>{smalltext}</p>
         </div>
@@ -26,7 +26,8 @@ export default function Overview() {
             </div>
             <div className='container-lg'>
                 <div className='row card-group'>
-                    <Card bigtext={'30'} smalltext={'Total Active Staffs'} color={'primary'} />
+                    <Card bigtext={'30'} smalltext={'Total Staffs'} color={'primary'} />
+                    <Card bigtext={'29'} smalltext={'Active Staffs'} color={'dark'} />
                     <Card bigtext={'1,450,000'} smalltext={'Gross Pay for previous month'} color={'success'} />
                     <Card bigtext={'1,080,000'} smalltext={'Net Pay for previous Month'} color={'danger'} />
                 </div>

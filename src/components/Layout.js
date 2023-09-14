@@ -23,6 +23,7 @@ export default function Layout({ loggedin }) {
   };
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
+  const [imgSrc, setImgSrc] = useState("");
 
   const handleSignout = () => {
     signOut(auth)
@@ -57,6 +58,13 @@ export default function Layout({ loggedin }) {
       getData();
     }
   }, []);
+
+  useEffect(() => {
+    if (userData) {
+      setImgSrc(userData?.avatar);
+    }
+  }, [userData]);
+
   return userData ? (
     <div>
       <header
@@ -77,7 +85,7 @@ export default function Layout({ loggedin }) {
               <FaBars />
             </button>
           </li>
-          <li>
+          <li className="align-self-center">
             <Link
               to="/"
               className="navbar-brand text-nowrap fs-4 px-md-3 text-white"
@@ -100,14 +108,14 @@ export default function Layout({ loggedin }) {
             </span>
           </button>
         </div>
-        <div className="dropdown pe-4 text-end">
+        <div className="dropdown pe-4 text-end align-self-center d-none d-sm-block">
           <Link
             className="d-block link-body-emphasis dropdown-toggle"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             <img
-              src={userData?.avatar}
+              src={imgSrc}
               alt="mdo"
               width="25"
               height="25"

@@ -9,7 +9,6 @@ import {
   FaBell,
 } from "react-icons/fa";
 import { BsFillFileSpreadsheetFill } from "react-icons/bs";
-import logo from "../img.jpeg";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth, db } from "../config/fireConfig";
@@ -19,6 +18,7 @@ import { doc, getDoc } from "firebase/firestore";
 export default function StaffLayout({ loggedin }) {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
+  const [imgSrc, setImgSrc] = useState("");
   const activeStyles = {
     fontWeight: "bold",
     backgroundColor: "aliceblue",
@@ -57,6 +57,13 @@ export default function StaffLayout({ loggedin }) {
       getData();
     }
   }, []);
+
+  useEffect(() => {
+    if (userData) {
+      setImgSrc(userData?.avatar);
+    }
+  }, [userData]);
+
   return userData ? (
     <div>
       <header
@@ -107,7 +114,7 @@ export default function StaffLayout({ loggedin }) {
             aria-expanded="false"
           >
             <img
-              src={logo}
+              src={imgSrc}
               alt="mdo"
               width="25"
               height="25"
@@ -221,7 +228,7 @@ export default function StaffLayout({ loggedin }) {
             </div>
           </div>
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <Outlet />
+            <Outlet context={{ userData }} />
           </main>
         </div>
       </div>

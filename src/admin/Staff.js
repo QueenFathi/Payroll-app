@@ -106,7 +106,7 @@ export default function Staff() {
       <td>{data?.department}</td>
       <td>{data?.designation}</td>
       <td>{data?.status ? "Active" : "Suspended"}</td>
-      <td style={{ display: "flex", columnGap: 3 }}>
+      <td className="d-flex justify-content-evenly">
         <button
           onClick={() => handleDetailShow(data)}
           className="btn btn-success"
@@ -279,7 +279,7 @@ export default function Staff() {
               <th scope="col">Department</th>
               <th scope="col">Designation</th>
               <th scope="col">Status</th>
-              <th scope="col">Action</th>
+              <th scope="col" className="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>{staffDataElements}</tbody>

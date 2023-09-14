@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Modal } from "react-bootstrap";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 import { toast } from "react-toastify";
 import { auth, db, storage } from "../config/fireConfig";
 import { useOutletContext } from "react-router-dom";
@@ -45,6 +45,29 @@ export default function Profile() {
       })
       .catch((err) => toast.error(err.code));
   };
+  const handleDeleteAvatar = async () => {
+    await setDoc(
+      doc(db, "admin", userData?.email),
+      {
+        avatar: "",
+      },
+      { merge: true }
+    )
+      .then(() => {
+        toast.success("Profile Picture Deleted");
+      })
+      .catch((err) => toast.error(err.code));
+  }
+  const DeleteFile = () => {
+    const desertRef = ref(storage, `profile_picture/${auth.currentUser.email}`);
+
+    deleteObject(desertRef).then(()=> {
+      toast.success("File Removed Successfully")
+      handleDeleteAvatar()
+    }).catch((error) => {
+        toast.error(error.code);
+      })
+  }
   const UploadFile = () => {
     const storageRef = ref(
       storage,
@@ -59,6 +82,7 @@ export default function Profile() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         if (progress >= 100) {
           document.getElementById("progress").innerHTML = "Uploading Done";
+          setAvatarChangeModal(false);
         } else {
           document.getElementById(
             "progress"
@@ -89,7 +113,7 @@ export default function Profile() {
     <div className="container-lg my-4">
       <h5>Account Information</h5>
       <hr></hr>
-      <div className="row d-flexflex align-items-center">
+      <div className="row d-flex align-items-center">
         <div className="col-5 col-md-3 col-lg-2">
           <img
             className="rounded-circle border-dark w-100"
@@ -104,7 +128,7 @@ export default function Profile() {
           >
             Change
           </button>
-          <button className="btn btn-secondary">Remove</button>
+          <button className="btn btn-secondary" onClick={DeleteFile}>Remove</button>
         </div>
       </div>
       <Modal
