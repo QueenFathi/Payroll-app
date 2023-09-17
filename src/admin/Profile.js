@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Modal } from "react-bootstrap";
-import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 import { toast } from "react-toastify";
 import { auth, db, storage } from "../config/fireConfig";
 import { useOutletContext } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
+import { updatePassword } from "firebase/auth";
 
 export default function Profile() {
   const { userData } = useOutletContext();
@@ -55,19 +61,21 @@ export default function Profile() {
     )
       .then(() => {
         toast.success("Profile Picture Deleted");
+        setImgSrc("");
       })
       .catch((err) => toast.error(err.code));
-  }
+  };
   const DeleteFile = () => {
     const desertRef = ref(storage, `profile_picture/${auth.currentUser.email}`);
 
-    deleteObject(desertRef).then(()=> {
-      toast.success("File Removed Successfully")
-      handleDeleteAvatar()
-    }).catch((error) => {
-        toast.error(error.code);
+    deleteObject(desertRef)
+      .then(() => {
+        handleDeleteAvatar();
       })
-  }
+      .catch((error) => {
+        toast.error(error.code);
+      });
+  };
   const UploadFile = () => {
     const storageRef = ref(
       storage,
@@ -104,6 +112,24 @@ export default function Profile() {
     );
   };
 
+  const handlePasswordChange = (e) => {
+    e.preventDefault();
+    const user = auth.currentUser;
+    if (e.target.password.value !== e.target.confirmpassword.value) {
+      toast.error("Password Mismatch!");
+      return;
+    }
+
+    updatePassword(user, e.target.password.value)
+      .then(() => {
+        toast.success("Password Updated");
+        handlepasswordChangeModalClose();
+      })
+      .catch((error) => {
+        toast.error(error.code);
+      });
+  };
+
   useEffect(() => {
     if (userData) {
       setImgSrc(userData?.avatar);
@@ -128,7 +154,9 @@ export default function Profile() {
           >
             Change
           </button>
-          <button className="btn btn-secondary" onClick={DeleteFile}>Remove</button>
+          <button className="btn btn-secondary" onClick={DeleteFile}>
+            Remove
+          </button>
         </div>
       </div>
       <Modal
@@ -224,12 +252,6 @@ export default function Profile() {
       <hr></hr>
       <h5>Password</h5>
       <div>
-        <p>
-          Password: {passwordShow ? "password" : "**********"}
-          <button className="btn" onClick={handlePasswordShow}>
-            {passwordShow ? <FaEyeSlash /> : <FaEye />}
-          </button>
-        </p>
         <div>
           <button
             className="btn btn-primary"
@@ -246,7 +268,7 @@ export default function Profile() {
       >
         <Modal.Header closeButton>Change Password</Modal.Header>
         <Modal.Body>
-          <form>
+          <form onSubmit={handlePasswordChange}>
             <div className="form-floating mb-2">
               <input
                 type={passwordChangeShow ? "text" : "password"}
