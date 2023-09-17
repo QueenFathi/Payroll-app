@@ -15,7 +15,6 @@ import { updatePassword } from "firebase/auth";
 
 export default function StaffProfile() {
   const { userData } = useOutletContext();
-  const [passwordShow, setPasswordShow] = useState(false);
   const [passwordChangeShow, setPasswordChangeShow] = useState(false);
   const [passwordConfirmChangeShow, setPasswordConfirmChangeShow] =
     useState(false);
@@ -24,7 +23,6 @@ export default function StaffProfile() {
   const [imgFile, setImgFile] = useState(null);
   const [imgSrc, setImgSrc] = useState("");
 
-  const handlePasswordShow = () => setPasswordShow(!passwordShow);
   const handlePasswordChangeShow = (e) => {
     e.preventDefault();
     setPasswordChangeShow(!passwordChangeShow);
@@ -68,13 +66,15 @@ export default function StaffProfile() {
   const DeleteFile = () => {
     const desertRef = ref(storage, `profile_picture/${auth.currentUser.email}`);
 
-    deleteObject(desertRef)
-      .then(() => {
-        handleDeleteAvatar();
-      })
-      .catch((error) => {
-        toast.error(error.code);
-      });
+    if (window.confirm("Are you sure you want to remove this picture?")) {
+      deleteObject(desertRef)
+        .then(() => {
+          handleDeleteAvatar();
+        })
+        .catch((error) => {
+          toast.error(error.code);
+        });
+      }
   };
   const UploadFile = () => {
     const storageRef = ref(
@@ -111,6 +111,7 @@ export default function StaffProfile() {
       }
     );
   };
+
   const handlePasswordChange = (e) => {
     e.preventDefault();
     const user = auth.currentUser;
@@ -128,6 +129,7 @@ export default function StaffProfile() {
         toast.error(error.code);
       });
   };
+
   useEffect(() => {
     if (userData) {
       setImgSrc(userData?.avatar);
@@ -250,14 +252,12 @@ export default function StaffProfile() {
       <hr></hr>
       <h5>Password</h5>
       <div>
-        <div>
-          <button
-            className="btn btn-primary"
-            onClick={handlePasswordChangeModalShow}
-          >
-            Change
-          </button>
-        </div>
+        <button
+          className="btn btn-primary"
+          onClick={handlePasswordChangeModalShow}
+        >
+          Change
+        </button>
       </div>
       <Modal
         centered
@@ -281,7 +281,7 @@ export default function StaffProfile() {
                 style={{ zIndex: "2" }}
                 onClick={handlePasswordChangeShow}
               >
-                {passwordShow ? <FaEyeSlash /> : <FaEye />}
+                {passwordChangeShow ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
             <div className="form-floating mb-2">
@@ -297,7 +297,7 @@ export default function StaffProfile() {
                 className="btn position-absolute bottom-0 end-0"
                 onClick={handlePasswordConfirmChangeShow}
               >
-                {passwordShow ? <FaEyeSlash /> : <FaEye />}
+                {passwordConfirmChangeShow ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
             <button className="btn btn-primary mt-4 d-flex justify-self-end ms-auto me-1">

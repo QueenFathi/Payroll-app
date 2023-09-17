@@ -36,6 +36,7 @@ export default function Timesheet() {
                                     <th>Sign In</th>
                                     <th>Sign Out</th>
                                     <th>Overtime Hours</th>
+                                    <th>Casual/Sick Leave</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,11 +45,13 @@ export default function Timesheet() {
                                     <td>8:00</td>
                                     <td>5:00</td>
                                     <td>0</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>Tuesday</td>
                                     <td>8:00</td>
                                     <td>5:00</td>
+                                    <td>0</td>
                                     <td>0</td>
                                 </tr>
                                 <tr>
@@ -56,11 +59,13 @@ export default function Timesheet() {
                                     <td>8:00</td>
                                     <td>5:00</td>
                                     <td>0</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>Thursday</td>
                                     <td>8:00</td>
                                     <td>5:00</td>
+                                    <td>0</td>
                                     <td>0</td>
                                 </tr>
                                 <tr>
@@ -68,17 +73,20 @@ export default function Timesheet() {
                                     <td>8:00</td>
                                     <td>5:00</td>
                                     <td>0</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>Saturday</td>
                                     <td>8:00</td>
                                     <td>5:00</td>
                                     <td>0</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>Sunday</td>
                                     <td>8:00</td>
                                     <td>5:00</td>
+                                    <td>0</td>
                                     <td>0</td>
                                 </tr>
                             </tbody>

@@ -85,6 +85,7 @@ export default function StaffTimesheet() {
                   <th>Sign In</th>
                   <th>Sign Out</th>
                   <th>Overtime Hours</th>
+                  <th>Casual/Sick Leave</th>
                 </tr>
               </thead>
               <tbody>
@@ -93,6 +94,13 @@ export default function StaffTimesheet() {
                     <label for="monday" className="form-label">
                       Monday
                     </label>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control border-0 rounded-0"
+                      id="monday"
+                    />
                   </td>
                   <td>
                     <input
@@ -143,12 +151,26 @@ export default function StaffTimesheet() {
                       id="tuesday"
                     />
                   </td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control border-0 rounded-0"
+                      id="tuesday"
+                    />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <label for="wednesday" className="form-label">
                       Wednesday
                     </label>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control border-0 rounded-0"
+                      id="wednesday"
+                    />
                   </td>
                   <td>
                     <input
@@ -199,12 +221,26 @@ export default function StaffTimesheet() {
                       id="thursday"
                     />
                   </td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control border-0 rounded-0"
+                      id="thursday"
+                    />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <label for="friday" className="form-label">
                       Friday
                     </label>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control border-0 rounded-0"
+                      id="friday"
+                    />
                   </td>
                   <td>
                     <input
@@ -255,12 +291,26 @@ export default function StaffTimesheet() {
                       id="saturday"
                     />
                   </td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control border-0 rounded-0"
+                      id="saturday"
+                    />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <label for="sunday" className="form-label">
                       Sunday
                     </label>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control border-0 rounded-0"
+                      id="sunday"
+                    />
                   </td>
                   <td>
                     <input
