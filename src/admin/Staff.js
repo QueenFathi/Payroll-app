@@ -73,10 +73,16 @@ export default function Staff() {
       phone: e.target.phone.value.trim(),
       address: e.target.address.value.trim(),
       avatar: "",
+      status:true,
+      accountNo: e.target.accountNo.value.trim(),
+      dateJoined: e.target.date.value,
+      basicSalary: e.target.salary.value.trim(),
+      employmentType: e.target.employmentType.value,
       id: staffID(),
     })
       .then(() => {
         toast.success("Staff Created");
+        setAddShow(false);
       })
       .catch((err) => toast.error(err.code));
   };
@@ -141,6 +147,10 @@ export default function Staff() {
           <p>Designation: {modalData?.designation}</p>
           <p>Contact Adress: {modalData?.address}</p>
           <p>Phone Number: {modalData?.phone}</p>
+          <p>Account Number: {modalData?.accountNo}</p>
+          <p>Date Joined: {modalData?.dateJoined}</p>
+          <p>Basic Salary: {modalData?.basicSalary}</p>
+          <p>Employment Type: {modalData?.employmentType}</p>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-primary" onClick={handleDetailClose}>
@@ -223,8 +233,43 @@ export default function Staff() {
               />
               <label for="address">Contact Adress</label>
             </div>
-            <button className="btn btn-primary d-flex justify-self-end ms-auto me-1">
-              Add
+            <div className="form-floating mb-2">
+              <input
+                type="text"
+                className="form-control"
+                id="accountNo"
+                name="accountNo"
+                required
+              />
+              <label for="accountNo">Account Number</label>
+            </div>
+            <div className="form-floating mb-2">
+              <input
+                type="date"
+                className="form-control"
+                id="date"
+                name="date"
+                required
+              />
+              <label for="date">Date Joined</label>
+            </div>
+            <div className="form-floating mb-2">
+              <input
+                type="text"
+                className="form-control"
+                id="salary"
+                name="salary"
+                required
+              />
+              <label for="salary">Basic Salary</label>
+            </div>
+            <select className="form-select" name="employmentType">
+              <option selected>Employment Type</option>
+              <option value="Part Time">Part Time</option>
+              <option value="Full Time">Full Time</option>
+            </select>
+            <button className="btn btn-primary d-flex justify-self-end ms-auto mt-2">
+              Add Employee
             </button>
           </form>
         </Modal.Body>
