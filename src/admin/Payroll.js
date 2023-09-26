@@ -47,7 +47,7 @@ export default function Payroll() {
       <td>{data?.absence}</td>
       <td>{data?.pension}</td>
       <td>{data?.total}</td>
-      <button className="btn editbtn bg-primary text-white py-1" onClick={handleAddShow}>
+      <button className="btn editbtn bg-success text-white py-1" onClick={handleAddShow}>
         <FaEdit /> edit
       </button>
     </tr>
@@ -143,30 +143,12 @@ export default function Payroll() {
               <td className="fw-semibold text-secondary">Pension Savings</td>
               <td className="fw-semibold text-secondary">Total</td>
             </tr>
-            <tr>
-              <td>John Doe</td>
-              <td>70,000</td>
-              <td>0</td>
-              <td>20,000</td>
-              <td>3,000</td>
-              <td>0</td>
-              <td>2,000</td>
-              <td>3,000</td>
-              <td>0</td>
-              <td>10,000</td>
-              <td>0</td>
-              <td>0</td>
-              <td>89,000</td>
-              <button className="btn editbtn bg-primary text-white py-1">
-                <FaEdit /> edit
-              </button>
-            </tr>
             {staffDataElements}
           </tbody>
         </table>
       </div>
       <div className="my-4">
-        <button className="d-flex ms-auto me-0 px-4 fs-5 btn btn-primary">
+        <button className="d-flex ms-auto me-0 px-4 fs-5 btn btn-success">
           Submit Payroll
         </button>
       </div>

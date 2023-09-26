@@ -1,5 +1,6 @@
 import { Modal } from 'react-bootstrap'
 import { useState } from 'react'
+import { FaCheck } from 'react-icons/fa'
 
 export default function Timesheet() {
     const [show, setShow] = useState(false)
@@ -121,7 +122,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
-                                <td><button onClick={() => handleShow()} className="btn btn-primary py-1 px-4">View</button></td>
+                                <td><button onClick={() => handleShow()} className="btn btn-success py-1 px-4">View</button></td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -129,7 +130,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
-                                <td><button className="btn btn-primary py-1 px-4">View</button></td>
+                                <td><button className="btn btn-success py-1 px-4">View</button></td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -137,7 +138,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
-                                <td><button className="btn btn-primary py-1 px-4">View</button></td>
+                                <td><button className="btn btn-success py-1 px-4">View</button></td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -145,7 +146,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
-                                <td><button className="btn btn-primary py-1 px-4">View</button></td>
+                                <td><button className="btn btn-success py-1 px-4">View</button></td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -153,7 +154,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
-                                <td><button className="btn btn-primary py-1 px-4">View</button></td>
+                                <td><button className="btn btn-success py-1 px-4">View</button></td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -161,7 +162,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
-                                <td><button className="btn btn-primary py-1 px-4">View</button></td>
+                                <td><button className="btn btn-success py-1 px-4">View</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -180,6 +181,7 @@ export default function Timesheet() {
                                 <th scope="col">Department</th>
                                 <th scope="col">Designation</th>
                                 <th scope="col">Date Received</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -189,6 +191,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -196,6 +199,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -203,6 +207,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -210,6 +215,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -217,6 +223,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -224,6 +231,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -231,6 +239,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -238,6 +247,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -245,6 +255,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                             <tr>
                                 <td>1,007</td>
@@ -252,13 +263,7 @@ export default function Timesheet() {
                                 <td>Production</td>
                                 <td>Production Manager</td>
                                 <td>24/09/2023</td>
-                            </tr>
-                            <tr>
-                                <td>1,007</td>
-                                <td>John Doe</td>
-                                <td>Production</td>
-                                <td>Production Manager</td>
-                                <td>24/09/2023</td>
+                                <td><FaCheck /> Approved</td>
                             </tr>
                         </tbody>
                     </table>

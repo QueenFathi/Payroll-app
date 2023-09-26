@@ -40,7 +40,7 @@ function App() {
           <Route path="/" element={<StaffLogin loggedin={loggedin} />} />
           <Route path="/staff" element={<StaffLayout loggedin={loggedin} />}>
             <Route index element={<Dashboard />} />
-            <Route path="payroll" element={<Payslip />} />
+            <Route path="payslip" element={<Payslip />} />
             <Route path="profile" element={<StaffProfile />} />
             <Route path="timesheet" element={<StaffTimesheet />} />
           </Route>

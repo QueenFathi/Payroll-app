@@ -238,10 +238,6 @@ export default function Profile() {
                     <td>Basic Salary</td>
                     <td>#{userData?.basicSalary}</td>
                   </tr>
-                  <tr>
-                    <td>Casual Leave</td>
-                    <td>0</td>
-                  </tr>
                 </tbody>
               </table>
             </div>

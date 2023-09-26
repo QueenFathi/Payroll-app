@@ -196,23 +196,23 @@ export default function StaffProfile() {
                 <tbody>
                   <tr>
                     <td>Name</td>
-                    <td>John Doe</td>
+                    <td>{userData?.firstName} {userData?.lastName}</td>
                   </tr>
                   <tr>
                     <td>Department</td>
-                    <td>Production</td>
+                    <td>{userData?.department}</td>
                   </tr>
                   <tr>
                     <td>Email Adress</td>
-                    <td>johndoe@gmail.com</td>
+                    <td>{userData?.email}</td>
                   </tr>
                   <tr>
                     <td>Account No</td>
-                    <td>1234567890</td>
+                    <td>{userData?.accountNo}</td>
                   </tr>
                   <tr>
                     <td>Date Joined</td>
-                    <td>03/03/2023</td>
+                    <td>{userData?.dateJoined}</td>
                   </tr>
                 </tbody>
               </table>
@@ -224,19 +224,19 @@ export default function StaffProfile() {
                 <tbody>
                   <tr>
                     <td>Employee Id</td>
-                    <td>1015</td>
+                    <td>{userData?.id}</td>
                   </tr>
                   <tr>
                     <td>Designation</td>
-                    <td>Production Manager</td>
+                    <td>{userData?.designation}</td>
                   </tr>
                   <tr>
                     <td>Employment Type</td>
-                    <td>Full Time</td>
+                    <td>{userData?.employmentType}</td>
                   </tr>
                   <tr>
                     <td>Basic Salary</td>
-                    <td>#22,000</td>
+                    <td>#{userData?.basicSalary}</td>
                   </tr>
                   <tr>
                     <td>Casual Leave</td>

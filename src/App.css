@@ -17,7 +17,7 @@ body::-webkit-scrollbar {
 }
 
 .mytable::-webkit-scrollbar {
-  height: 7px
+  height: 7px;
 }
 
 .mytable::-webkit-scrollbar-thumb {
