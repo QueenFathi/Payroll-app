@@ -12,7 +12,7 @@ import {
 import { db } from "../config/fireConfig";
 import { toast } from "react-toastify";
 
-export default function Staff() {
+export default function Employee() {
   const [detailShow, setDetailShow] = useState(false);
   const [addShow, setAddShow] = useState(false);
   const [modalData, setModalData] = useState(null);
@@ -274,9 +274,9 @@ export default function Staff() {
           </form>
         </Modal.Body>
       </Modal>
-      <div className="py-3 px-4">
+      <div className="pt-3 pb-2 px-3 bg-light rounded">
         <div className="d-flex">
-          <h4 className="me-auto">Employee Information</h4>
+          <h3 className="me-auto">Employee Information</h3>
           <button
             onClick={handleAddShow}
             className="btn btn-outline-secondary text-dark rounded-circle me-2"
@@ -312,7 +312,7 @@ export default function Staff() {
           />
         </div>
       </div>
-      <div class="mytable table-responsive small">
+      <div class="mytable table-responsive small mt-4">
         <table class="table table-hover">
           <thead>
             <tr>

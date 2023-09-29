@@ -137,26 +137,29 @@ export default function StaffProfile() {
   }, [userData]);
   return (
     <div className="container-lg my-4">
-      <h5>Account Information</h5>
-      <hr></hr>
-      <div className="row d-flex align-items-center">
-        <div className="col-5 col-md-3 col-lg-2">
-          <img
-            className="rounded-circle border-dark w-100"
-            src={imgSrc}
-            alt="profilepic"
-          />
-        </div>
-        <div className="col-7 col-md-9 col-lg-10">
-          <button
-            className="btn btn-outline-dark me-3"
-            onClick={handleAvatarChangeModalShow}
-          >
-            Change
-          </button>
-          <button className="btn btn-secondary" onClick={DeleteFile}>
-            Remove
-          </button>
+      <div className="bg-light rounded px-3 pt-3 pb-2">
+        <h3>Account Information</h3>
+      </div>
+      <div className="bg-light rounded mt-4 p-3">
+        <div className="row d-flex align-items-center">
+          <div className="col-5 col-md-3 col-lg-2">
+            <img
+              className="rounded-circle border-dark w-100"
+              src={imgSrc}
+              alt="profilepic"
+            />
+          </div>
+          <div className="col-7 col-md-9 col-lg-10">
+            <button
+              className="btn btn-outline-dark me-3"
+              onClick={handleAvatarChangeModalShow}
+            >
+              Change
+            </button>
+            <button className="btn btn-secondary" onClick={DeleteFile}>
+              Remove
+            </button>
+          </div>
         </div>
       </div>
       <Modal
@@ -186,13 +189,13 @@ export default function StaffProfile() {
           </form>
         </Modal.Body>
       </Modal>
-      <hr></hr>
-      <div>
-        <h5>Personal Information</h5>
-        <div className="row">
+      
+      <div className="mt-4 px-3 pt-3 bg-light rounded">
+        <h4>Personal Information</h4>
+        <div className="row mt-4">
           <div className="col-sm-6">
             <div className="table-responsive small">
-              <table className="table table-borderless table-sm">
+              <table className="table table-borderless table-sm table-light">
                 <tbody>
                   <tr>
                     <td>Name</td>
@@ -220,7 +223,7 @@ export default function StaffProfile() {
           </div>
           <div className="col-sm-6">
             <div className="table-responsive small">
-              <table className="table table-borderless table-sm">
+              <table className="table table-borderless table-sm table-light">
                 <tbody>
                   <tr>
                     <td>Employee Id</td>
@@ -249,15 +252,16 @@ export default function StaffProfile() {
         </div>
       </div>
 
-      <hr></hr>
-      <h5>Password</h5>
-      <div>
-        <button
-          className="btn btn-primary"
-          onClick={handlePasswordChangeModalShow}
-        >
-          Change
-        </button>
+      <div className="mt-4 bg-light rounded p-3">
+        <h4>Password</h4>
+        <div className="mt-4">
+          <button
+            className="btn btn-primary"
+            onClick={handlePasswordChangeModalShow}
+          >
+            Change Password
+          </button>
+        </div>
       </div>
       <Modal
         centered

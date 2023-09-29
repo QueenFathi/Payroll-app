@@ -7,11 +7,11 @@ import Layout from "./components/Layout";
 import StaffLayout from "./components/Layout2";
 import Error from "./components/Error";
 import Overview from "./admin/Overview";
-import Staff from "./admin/Staff";
+import Employee from "./admin/Employees";
 import Payroll from "./admin/Payroll";
 import Profile from "./admin/Profile";
 import Timesheet from "./admin/Timesheet";
-import Dashboard from "./staff/Dashboard";
+import Dashboard from "./staff/Overview";
 import Payslip from "./staff/Payslip";
 import StaffProfile from "./staff/StaffProfile";
 import StaffTimesheet from "./staff/StaffTimesheet";
@@ -50,7 +50,7 @@ function App() {
           />
           <Route path="/admin" element={<Layout loggedin={loggedin} />}>
             <Route index element={<Overview />} />
-            <Route path="staff" element={<Staff />} />
+            <Route path="employee" element={<Employee />} />
             <Route path="payroll" element={<Payroll />} />
             <Route path="profile" element={<Profile />} />
             <Route path="timesheet" element={<Timesheet />} />

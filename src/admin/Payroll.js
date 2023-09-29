@@ -31,7 +31,8 @@ export default function Payroll() {
   };
 
   const staffDataElements = data?.map((data) => (
-    <tr key={data.id} className="text-nowrap">
+    <tr key={data?.id} className="text-nowrap">
+      <td>{data?.id}</td>
       <td>
         {data?.firstName} {data?.lastName}
       </td>
@@ -75,8 +76,8 @@ export default function Payroll() {
           </form>
         </Modal.Body>
       </Modal>
-      <div className="mt-5">
-        <h4>{dateBuilder(new Date())} Payroll</h4>
+      <div className="bg-light rounded pt-3 pb-2 px-3">
+        <h3>{dateBuilder(new Date())} Payroll</h3>
       </div>
       <div className="mt-4 d-flex justify-content-between">
         <button type="button" className="btn btn-sm btn-outline-secondary">
@@ -96,17 +97,20 @@ export default function Payroll() {
         <table className="table table-bordered border-dark table-hover text-nowrap">
           <thead>
             <tr>
-              <th className="fs-6" scope="col">
-                Names
+              <th className="fs-6" 
+                scope="col" 
+                colSpan={2}
+              >
+                Employee details
               </th>
               <th
-                className="fs-6 table-info text-center"
+                className="fs-6 table-success text-center"
                 scope="col"
                 colSpan={5}
               >
                 Earnings
               </th>
-              <th className="fs-6 table-success" scope="col">
+              <th className="fs-6 table-info" scope="col">
                 Additions
               </th>
               <th
@@ -123,6 +127,7 @@ export default function Payroll() {
           </thead>
           <tbody>
             <tr>
+              <td className="fw-semibold text-secondary">ID</td>
               <td className="fw-semibold text-secondary">Name</td>
               <td className="fw-semibold text-secondary">Basic Salary</td>
               <td className="fw-semibold text-secondary">

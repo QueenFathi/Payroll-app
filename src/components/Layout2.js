@@ -91,7 +91,7 @@ export default function StaffLayout({ loggedin }) {
               <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                 <h3 className="text-success p-3 d-none d-md-block">Company Name</h3>
                 <ul className="nav flex-column px-3 pt-2 fs-4">
-                  <li className="nav-item">
+                  <li className="nav-item mb-1">
                     <NavLink
                       to="/staff" end
                       className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
@@ -102,7 +102,7 @@ export default function StaffLayout({ loggedin }) {
                       Overview
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item mb-1">
                     <NavLink
                       to="payslip"
                       className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
@@ -112,7 +112,7 @@ export default function StaffLayout({ loggedin }) {
                       Payslip
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item mb-1">
                     <NavLink
                       to="timesheet"
                       className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
@@ -127,7 +127,7 @@ export default function StaffLayout({ loggedin }) {
                 <hr className="my-3"></hr>
 
                 <ul className="nav flex-column mb-auto ps-3 fs-4">
-                  <li className="nav-item">
+                  <li className="nav-item mb-1">
                     <NavLink
                       to="profile"
                       className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
@@ -137,7 +137,7 @@ export default function StaffLayout({ loggedin }) {
                       Profile
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item mb-1">
                     <div
                       onClick={handleSignout}
                       className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"

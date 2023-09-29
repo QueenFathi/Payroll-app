@@ -1,5 +1,6 @@
 export const data = [
-  {
+  { id: 1001,
+    lastName: "Shenanigan",
     firstName: "John",
     basic: "20000",
     transport: "2000",
@@ -14,7 +15,8 @@ export const data = [
     pension: "20000",
     total: "2000",
   },
-  {
+  { id: 1002, 
+    lastName: "Shenanigan",
     firstName: "Joan",
     basic: "20000",
     transport: "2000",
@@ -29,7 +31,8 @@ export const data = [
     pension: "20000",
     total: "2000",
   },
-  {
+  { id: 1003, 
+    lastName: "Shenanigan",
     firstName: "Jean",
     basic: "20000",
     transport: "2000",
@@ -44,7 +47,8 @@ export const data = [
     pension: "20000",
     total: "2000",
   },
-  {
+  { id: 1004, 
+    lastName: "Shenanigan",
     firstName: "Jehn",
     basic: "20000",
     transport: "2000",
@@ -59,7 +63,8 @@ export const data = [
     pension: "20000",
     total: "2000",
   },
-  {
+  { id: 1005, 
+    lastName: "Shenanigan",
     firstName: "Jenn",
     basic: "20000",
     transport: "2000",
@@ -74,7 +79,8 @@ export const data = [
     pension: "20000",
     total: "2000",
   },
-  {
+  { id: 1006, 
+    lastName: "Shenanigan",
     firstName: "Johb",
     basic: "20000",
     transport: "2000",
@@ -89,7 +95,8 @@ export const data = [
     pension: "20000",
     total: "2000",
   },
-  {
+  { id: 1007, 
+    lastName: "Shenanigan",
     firstName: "Johl",
     basic: "20000",
     transport: "2000",
@@ -104,7 +111,8 @@ export const data = [
     pension: "20000",
     total: "2000",
   },
-  {
+  { id: 1008, 
+    lastName: "Shenanigan",
     firstName: "Jolj",
     basic: "20000",
     transport: "2000",

@@ -13,7 +13,7 @@ export default function Timesheet() {
     }
 
     return(
-        <div className='mt-5'>
+        <div>
             <Modal centered show={show} onHide={handleClose}>
                 <Modal.Header closeButton>Weekly Timesheet</Modal.Header>
                 <Modal.Body>
@@ -100,11 +100,11 @@ export default function Timesheet() {
                 </Modal.Footer>
             </Modal>
             <div>
-                <div className='text-center mb-4'>
+                <div className='text-center bg-light rounded px-3 pt-3 pb-2'>
                     <h2 className="fw-bold">New In</h2>
                 </div>
-                <div className="table-responsive small">
-                    <table className="table text-nowrap">
+                <div className="table-responsive small mt-4 rounded">
+                    <table className="table text-nowrap table-light">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -169,11 +169,11 @@ export default function Timesheet() {
                 </div>
             </div>
             <div>
-                <div className='text-center mt-5 mb-4'>
+                <div className='text-center mt-4 bg-light rounded px-3 pt-3 pb-2'>
                     <h2 className="fw-bold">Approved</h2>
                 </div>
-                <div className="table-responsive small">
-                    <table className="table">
+                <div className="table-responsive small rounded mt-4">
+                    <table className="table table-light">
                     <thead>
                             <tr>
                                 <th scope="col">#</th>
