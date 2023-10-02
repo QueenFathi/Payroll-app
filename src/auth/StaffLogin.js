@@ -56,15 +56,15 @@ export default function Login({ loggedin }) {
       className="container-lg d-flex align-items-center"
       style={{ minHeight: "100vh" }}
     >
-      <div class="form-signin w-100 m-auto">
+      <div className="form-signin w-100 m-auto">
         <form onSubmit={handleLogin}>
-          <h1 class="h3 mb-4">Sign In</h1>
-          <div class="form-floating">
+          <h1 className="h3 mb-4">Sign In</h1>
+          <div className="form-floating">
             <input
               type="email"
               name="email"
               required
-              class="form-control"
+              className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
             />
@@ -72,12 +72,12 @@ export default function Login({ loggedin }) {
               <FaEnvelope /> Email address
             </label>
           </div>
-          <div class="form-floating">
+          <div className="form-floating">
             <input
               type="password"
               name="password"
               required
-              class="form-control"
+              className="form-control"
               id="floatingPassword"
               placeholder="Password"
             />
@@ -86,7 +86,7 @@ export default function Login({ loggedin }) {
             </label>
           </div>
 
-          <button class="btn btn-primary w-100 py-2" type="submit">
+          <button className="btn btn-primary w-100 py-2" type="submit">
             Sign in
           </button>
         </form>

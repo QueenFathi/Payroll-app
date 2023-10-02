@@ -135,6 +135,21 @@ export default function Employee() {
     </tr>
   ));
 
+  tableData?.sort((a, b) => {
+    const nameA = a.firstName.toLowerCase();
+    const nameB = b.firstName.toLowerCase();
+  
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+  
+    return 0;
+  });
+  
+
   return (
     <div className="mt-3 staff">
       <Modal centered show={detailShow} onHide={handleDetailClose}>
@@ -303,17 +318,17 @@ export default function Employee() {
             <option>Department</option>
           </select>
         </div>
-        <div id="navbarSearch" class="navbar-search mt-2 w-100 collapse">
+        <div id="navbarSearch" className="navbar-search mt-2 w-100 collapse">
           <input
-            class="form-control w-100 border-secondary"
+            className="form-control w-100 border-secondary"
             type="text"
             placeholder="Search"
             aria-label="Search"
           />
         </div>
       </div>
-      <div class="mytable table-responsive small mt-4">
-        <table class="table table-hover">
+      <div className="mytable table-responsive small mt-4">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th></th>

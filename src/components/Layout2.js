@@ -140,7 +140,7 @@ export default function StaffLayout({ loggedin }) {
                   <li className="nav-item mb-1">
                     <div
                       onClick={handleSignout}
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
+                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2 nav-signout"
                     >
                       <FaDoorOpen />
                       Sign out

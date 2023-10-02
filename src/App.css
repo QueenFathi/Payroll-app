@@ -34,9 +34,10 @@ body {
   scrollbar-width: none;
 }
 
-.offcanvas-md .nav .nav-item a:hover {
+.offcanvas-md .nav .nav-item a:hover, .nav-signout:hover {
+  cursor: pointer;
   background-color: aliceblue;
-  color: blue;
+  font-weight: 600;
 }
 
 .payroll table tr{

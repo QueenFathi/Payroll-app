@@ -7,6 +7,7 @@ import {
   FaFileContract,
   FaUser,
   FaDoorOpen,
+  FaUserFriends,
 } from "react-icons/fa";
 import { BsFillFileSpreadsheetFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
@@ -110,7 +111,7 @@ export default function Layout({ loggedin }) {
                       className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
                       style={({ isActive }) => (isActive ? activeStyles : null)}
                     >
-                      <FaUser />
+                      <FaUserFriends />
                       Employees
                     </NavLink>
                   </li>
@@ -152,7 +153,7 @@ export default function Layout({ loggedin }) {
                   <li className="nav-item mb-1">
                     <div
                       onClick={handleSignout}
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
+                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2 nav-signout"
                     >
                       <FaDoorOpen />
                       Sign out
