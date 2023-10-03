@@ -100,6 +100,59 @@ export default function Employee() {
       .catch((err) => toast.error(err.code));
   };
 
+  function sortData(e) {
+    const query = e.target.value
+    var updatedData = []
+    if(tableData){
+      updatedData=[...tableData]
+    }
+    if (query === "lastName") {
+      updatedData = updatedData?.sort((a, b) => {
+        const nameA = a.lastName.toLowerCase();
+        const nameB = b.lastName.toLowerCase();
+      
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      
+        return 0;
+      });
+    } else if (query === "department") {
+      updatedData = updatedData?.sort((a, b) => {
+        const nameA = a.department.toLowerCase();
+        const nameB = b.department.toLowerCase();
+      
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      
+        return 0;
+      });
+    } else if (query === "status") {
+      updatedData = updatedData?.sort((a, b) => 
+        b.status - a.status
+      );
+    } else if (query === "id") {
+      updatedData = updatedData?.sort((a, b) => {
+        if (a.id < b.id) {
+          return -1;
+        }
+        if (a.id > b.id) {
+          return 1;
+        }
+      
+        return 0;
+      });
+    }
+    setTableData(updatedData)
+  }
+
   const staffDataElements = tableData?.map((data) => (
     <tr key={data.id} className="text-nowrap">
       <td>
@@ -134,20 +187,6 @@ export default function Employee() {
       </td>
     </tr>
   ));
-
-  tableData?.sort((a, b) => {
-    const nameA = a.firstName.toLowerCase();
-    const nameB = b.firstName.toLowerCase();
-  
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-  
-    return 0;
-  });
   
 
   return (
@@ -174,9 +213,9 @@ export default function Employee() {
         </Modal.Footer>
       </Modal>
       <Modal centered show={addShow} onHide={handleAddClose}>
-        <Modal.Header closeButton>Add Staff Data</Modal.Header>
+        <Modal.Header closeButton>Add Employee Data</Modal.Header>
         <Modal.Body>
-          <h5>Fill in all details on the new staff</h5>
+          <h5>Fill in all details of the new employee</h5>
           <form onSubmit={handleAddStaff}>
             <div className="form-floating mb-2">
               <input
@@ -312,10 +351,13 @@ export default function Employee() {
           <select
             className="form-select py-1 border-secondary"
             style={{ width: "150px" }}
+            onChange={sortData}
           >
             <option selected>Sort By</option>
-            <option>First Name</option>
-            <option>Department</option>
+            <option value={"id"}>Employee ID</option>
+            <option value={"lastName"}>Last Name</option>
+            <option value={"department"}>Department</option>
+            <option value={"status"}>Status</option>
           </select>
         </div>
         <div id="navbarSearch" className="navbar-search mt-2 w-100 collapse">
@@ -332,7 +374,7 @@ export default function Employee() {
           <thead>
             <tr>
               <th></th>
-              <th scope="col">Staff ID</th>
+              <th scope="col">Employee ID</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Email Adress</th>
