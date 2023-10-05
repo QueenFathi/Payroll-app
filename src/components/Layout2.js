@@ -217,17 +217,17 @@ export default function StaffLayout({ loggedin }) {
                     <hr className="dropdown-divider"></hr>
                   </li>
                   <li>
-                    <div
+                    <Link
                       onClick={handleSignout}
                       className="dropdown-item"
                     >
                       <FaDoorOpen /> Sign Out
-                    </div>
+                    </Link>
                   </li>
                 </ul>
               </div>
             </header>
-            <div className="px-2">
+            <div className="px-2 mb-3">
               <Outlet context={{ userData }} />
             </div>
           </main>
@@ -235,6 +235,6 @@ export default function StaffLayout({ loggedin }) {
       </div>
     </div>
   ) : (
-    <h1>Loading</h1>
+    <h1>Loading...</h1>
   );
 }

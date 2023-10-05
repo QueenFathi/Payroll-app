@@ -240,29 +240,29 @@ export default function Overview() {
                     <Card bigtext={'1,080,000'} smalltext={'Net Pay for previous Month'} color={'danger'} icon={<FaMoneyCheckAlt />} />
                 </div>
             </div>
-            <div className='mt-4'>
+            <div className=''>
                 <div className='row'>
                     <div className='col-md-8'>
-                        <div className='me-1 bg-light rounded px-2'>
+                        <div className='me-1 bg-light rounded px-2 mt-4'>
                             <Bar options={salaryChartOptions} data={salaryChartData} />
                         </div>
                     </div>
                     <div className='col-md-4'>
-                        <div className='ms-1 bg-light rounded p-4'>
+                        <div className='ms-1 bg-light rounded p-4 mt-4'>
                             <Doughnut options={staffChartOptions} data={staffChartData} />
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='mt-4'>
+            <div className=''>
                 <div className='row'>
                     <div className='col-md-4'>
-                        <div className='ms-1 bg-light rounded p-4'>
+                        <div className='ms-1 bg-light rounded p-4 mt-4'>
                             <Pie options={departmentChartOptions} data={departmentChartData} />
                         </div>
                     </div>
                     <div className='col-md-4'>
-                        <div className='ms-1 bg-light rounded p-4'>
+                        <div className='ms-1 bg-light rounded p-4 mt-4'>
                             <h5 className='py-2'>Required Actions</h5>
                             <div>
                                 <p className='bg-white p-3 rounded'>Approve 3 employee timesheet</p>
@@ -274,7 +274,7 @@ export default function Overview() {
                         </div>
                     </div>
                     <div className='col-md-4'>
-                        <Calendar className='bg-light rounded border-0'
+                        <Calendar className='bg-light rounded border-0 mt-4'
                             onChange={onChange}
                             value={value}
                         />
@@ -283,9 +283,9 @@ export default function Overview() {
             </div>
             <div className='mt-4'>
                 <div className='row'>
-                    <div className='col-md-12'>
-                        <div className="table-responsive rounded bg-light p-2">
-                            <h4 className='py-2'>Employee Information</h4>
+                    <div className='col-md-12 rounded bg-light'>
+                        <h4 className='px-2 pt-2 pb-lg-2'>Employee Information</h4>
+                        <div className="table-responsive">
                             <table className="table table-borderless table-light">
                                 <thead className='border-bottom border-dark'>
                                     <tr>

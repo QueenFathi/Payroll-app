@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Modal } from "react-bootstrap";
 import {
   ref,
@@ -15,22 +14,10 @@ import { updatePassword } from "firebase/auth";
 
 export default function StaffProfile() {
   const { userData } = useOutletContext();
-  const [passwordChangeShow, setPasswordChangeShow] = useState(false);
-  const [passwordConfirmChangeShow, setPasswordConfirmChangeShow] =
-    useState(false);
   const [passwordChangeModal, setPasswordChangeModal] = useState(false);
   const [avatarChangeModal, setAvatarChangeModal] = useState(false);
   const [imgFile, setImgFile] = useState(null);
   const [imgSrc, setImgSrc] = useState("");
-
-  const handlePasswordChangeShow = (e) => {
-    e.preventDefault();
-    setPasswordChangeShow(!passwordChangeShow);
-  };
-  const handlePasswordConfirmChangeShow = (e) => {
-    e.preventDefault();
-    setPasswordConfirmChangeShow(!passwordConfirmChangeShow);
-  };
 
   const handleAvatarChangeModalShow = () => setAvatarChangeModal(true);
   const handleAvatarChangeModalClose = () => setAvatarChangeModal(false);
@@ -136,7 +123,7 @@ export default function StaffProfile() {
     }
   }, [userData]);
   return (
-    <div className="container-lg my-4">
+    <div>
       <div className="bg-light rounded px-3 pt-3 pb-2">
         <h3>Account Information</h3>
       </div>
@@ -273,36 +260,23 @@ export default function StaffProfile() {
           <form onSubmit={handlePasswordChange}>
             <div className="form-floating mb-2">
               <input
-                type={passwordChangeShow ? "text" : "password"}
-                className="form-control position-relative rounded-0 border-0 border-bottom"
+                type="password"
+                className="form-control rounded-0 border-0 border-bottom"
                 id="password"
                 name="password"
                 required
               />
               <label for="password">Password</label>
-              <button
-                className="btn position-absolute bottom-0 end-0"
-                style={{ zIndex: "2" }}
-                onClick={handlePasswordChangeShow}
-              >
-                {passwordChangeShow ? <FaEyeSlash /> : <FaEye />}
-              </button>
             </div>
             <div className="form-floating mb-2">
               <input
-                type={passwordConfirmChangeShow ? "text" : "password"}
-                className="form-control position-relative rounded-0 border-0 border-bottom"
+                type="password"
+                className="form-control rounded-0 border-0 border-bottom"
                 id="confirmpassword"
                 name="confirmpassword"
                 required
               />
               <label for="confirmpassword">Confirm Password</label>
-              <button
-                className="btn position-absolute bottom-0 end-0"
-                onClick={handlePasswordConfirmChangeShow}
-              >
-                {passwordConfirmChangeShow ? <FaEyeSlash /> : <FaEye />}
-              </button>
             </div>
             <button className="btn btn-primary mt-4 d-flex justify-self-end ms-auto me-1">
               Change

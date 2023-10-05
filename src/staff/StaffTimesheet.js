@@ -58,7 +58,7 @@ export default function StaffTimesheet() {
   };
 
   return (
-    <div className="container-lg">
+    <div>
       <div className="d-flex justify-content-between pb-2 pt-3 px-3 bg-light rounded">
         <h3>Weekly Timesheet</h3>
         <h4>{dateBuilder(new Date())}</h4>

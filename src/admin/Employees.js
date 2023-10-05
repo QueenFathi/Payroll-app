@@ -17,6 +17,7 @@ export default function Employee() {
   const [addShow, setAddShow] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [tableData, setTableData] = useState(null);
+  const [updatedTableData, setupdatedTableData] = useState(null);
 
   const getTabledata = () => {
     const q = query(collection(db, "staffs"));
@@ -153,7 +154,35 @@ export default function Employee() {
     setTableData(updatedData)
   }
 
-  const staffDataElements = tableData?.map((data) => (
+  useEffect(() => {
+    if(tableData) {
+      setupdatedTableData(tableData)
+    }
+  }, [tableData])
+
+  function performSearch(query) {
+    var filteredArray = []
+    if(tableData){
+      filteredArray=[...tableData]
+    }
+    filteredArray = filteredArray?.filter((obj) => {
+      const idMatch = obj.id.toString().includes(query);
+      const firstNameMatch = obj.firstName.toLowerCase().includes(query.toLowerCase());
+      const lastNameMatch = obj.lastName.toLowerCase().includes(query.toLowerCase());
+      const departmentMatch = obj.department.toLowerCase().includes(query.toLowerCase());
+      const designationMatch = obj.designation.toLowerCase().includes(query.toLowerCase());
+      const emailMatch = obj.email.toLowerCase().includes(query.toLowerCase());
+      return idMatch || firstNameMatch || lastNameMatch || departmentMatch || designationMatch || emailMatch;
+    })
+    setupdatedTableData(filteredArray)
+  }
+
+  function searchListener(e) {
+    const query = e.target.value.trim();
+    performSearch(query);
+  };
+
+  var staffDataElements = updatedTableData?.map((data) => (
     <tr key={data.id} className="text-nowrap">
       <td>
         <input type="checkbox" id="k" />
@@ -187,6 +216,10 @@ export default function Employee() {
       </td>
     </tr>
   ));
+
+  if(updatedTableData?.length < 1) {
+    staffDataElements = (<p className="text-center">No results</p>)
+  }
   
 
   return (
@@ -366,6 +399,7 @@ export default function Employee() {
             type="text"
             placeholder="Search"
             aria-label="Search"
+            onChange={searchListener}
           />
         </div>
       </div>
