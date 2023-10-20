@@ -1,4 +1,4 @@
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaSearch } from "react-icons/fa";
 import { data } from "../api";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
@@ -70,7 +70,7 @@ export default function Payroll() {
                 value=""
                 required
               />
-              <label for=""></label>
+              <label htmlFor=""></label>
             </div>
             <button className="btn btn-primary">Save Changes</button>
           </form>
@@ -79,9 +79,20 @@ export default function Payroll() {
       <div className="bg-light rounded pt-3 pb-2 px-3">
         <h3>{dateBuilder(new Date())} Payroll</h3>
       </div>
-      <div className="mt-4 d-flex justify-content-between">
-        <button type="button" className="btn btn-sm btn-outline-secondary">
+      <div className="mt-4 d-flex">
+        <button type="button" className="btn btn-sm btn-outline-secondary me-auto">
           Suspended Employees <span className="badge text-bg-secondary">0</span>
+        </button>
+        <button
+            className="btn me-1 rounded-circle"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSearch"
+            aria-controls="navbarSearch"
+            aria-expanded="false"
+            aria-label="Toggle search"
+          >
+            <FaSearch />
         </button>
         <select
           className="form-select py-1 border-secondary"
@@ -92,6 +103,14 @@ export default function Payroll() {
           <option>Basic Salary</option>
           <option>Net Pay</option>
         </select>
+      </div>
+      <div id="navbarSearch" className="navbar-search mt-2 w-100 collapse">
+        <input
+          className="form-control w-100 border-secondary"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+        />
       </div>
       <div className="mytable mt-4 table-responsive">
         <table className="table table-bordered border-dark table-hover text-nowrap">

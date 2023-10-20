@@ -17,6 +17,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from 'react-router-dom';
 
 
 ChartJS.register(
@@ -31,14 +32,14 @@ ChartJS.register(
   
 function Card({bigtext, smalltext, color, icon}) {
     return(
-        <div className='card me-2 rounded text-center border-0 py-4 text-bg-light'>
+        <div className='card me-2 rounded text-center border-0 pt-4 pb-2 text-bg-light'>
             <div className='row ps-4'>
                 <div className={`col-3 h2 rounded-circle text-bg-${color} d-flex align-items-center justify-content-center`} style={{width: '50px', height: '50px'}}>
                     {icon}
                 </div>
                 <div className='col-9'>
-                    <h1>{bigtext}</h1>
-                    <p>{smalltext}</p>
+                    <h3>{bigtext}</h3>
+                    <p><small>{smalltext}</small></p>
                 </div>
             </div>
         </div>
@@ -126,12 +127,12 @@ export default function Overview() {
           {
             label: 'Gross Salary',
             data: salary.map(s => s.gross),
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            backgroundColor: 'rgba(25, 135, 84, 0.7)',
           },
           {
             label: 'Net Salary',
             data: salary.map(s => s.net),
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            backgroundColor: 'rgba(25, 135, 84, 0.5)',
           },
         ],
     };
@@ -157,12 +158,12 @@ export default function Overview() {
             label: 'Employees Data',
             data: [activeEmployees, suspendedEmployees],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
+                'rgba(25, 135, 84, 0.7)',
+                'rgba(25, 135, 84, 0.5)',
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
+                'rgba(25, 135, 84, 1)',
+                'rgba(25, 135, 84, 1)',
             ],
             borderWidth: 1,
           },
@@ -187,20 +188,20 @@ export default function Overview() {
             label: 'Departments',
             data: Object.values(departmentCounts),
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
+              'rgba(25, 135, 84, 0.7)',
+              'rgba(25, 135, 84, 0.6)',
+              'rgba(25, 135, 84, 0.5)',
+              'rgba(25, 135, 84, 0.4)',
+              'rgba(25, 135, 84, 0.3)',
+              'rgba(25, 135, 84, 0.2)',
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)',
+              'rgba(25, 135, 84, 1)',
+              'rgba(25, 135, 84, 1)',
+              'rgba(25, 135, 84, 1)',
+              'rgba(25, 135, 84, 1)',
+              'rgba(25, 135, 84, 1)',
+              'rgba(25, 135, 84, 1)',
             ],
             borderWidth: 1,
           },
@@ -235,9 +236,9 @@ export default function Overview() {
             <div className='container-lg'>
                 <div className='row card-group'>
                     <Card bigtext={totalEmployees} smalltext={'Total Employees'} color={'success'} icon={<FaUserFriends />} />
-                    <Card bigtext={activeEmployees} smalltext={'Active Employees'} color={'dark'} icon={<FaUserCheck />} />
-                    <Card bigtext={'1,450,000'} smalltext={'Gross Pay for previous month'} color={'secondary'} icon={<FaMoneyCheck />} />
-                    <Card bigtext={'1,080,000'} smalltext={'Net Pay for previous Month'} color={'danger'} icon={<FaMoneyCheckAlt />} />
+                    <Card bigtext={activeEmployees} smalltext={'Active Employees'} color={'success'} icon={<FaUserCheck />} />
+                    <Card bigtext={'1,450,000'} smalltext={'Gross Pay for previous month'} color={'success'} icon={<FaMoneyCheck />} />
+                    <Card bigtext={'1,080,000'} smalltext={'Net Pay for previous Month'} color={'success'} icon={<FaMoneyCheckAlt />} />
                 </div>
             </div>
             <div className=''>
@@ -284,10 +285,13 @@ export default function Overview() {
             <div className='mt-4'>
                 <div className='row'>
                     <div className='col-md-12 rounded bg-light'>
-                        <h4 className='px-2 pt-2 pb-lg-2'>Employee Information</h4>
+                        <div className='d-flex justify-content-between'>
+                            <h4 className='px-2 pt-2 pb-lg-2'>Employee Information</h4>
+                            <Link to={'employee'} className='text-dark fw-semibold p-4 pb-lg-2'><u>See all</u></Link>
+                        </div>
                         <div className="table-responsive">
-                            <table className="table table-borderless table-light">
-                                <thead className='border-bottom border-dark'>
+                            <table className="table table-bordered table-hover table-light">
+                                <thead>
                                     <tr>
                                         <th scope='col'>ID</th>
                                         <th scope='col'>Name</th>

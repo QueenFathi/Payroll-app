@@ -258,7 +258,7 @@ export default function Employee() {
                 name="firstName"
                 required
               />
-              <label for="firstName">First Name</label>
+              <label htmlFor="firstName">First Name</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -268,7 +268,7 @@ export default function Employee() {
                 name="lastName"
                 required
               />
-              <label for="lastName">Last Name</label>
+              <label htmlFor="lastName">Last Name</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -278,7 +278,7 @@ export default function Employee() {
                 name="email"
                 required
               />
-              <label for="email">Email Address</label>
+              <label htmlFor="email">Email Address</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -288,7 +288,7 @@ export default function Employee() {
                 name="department"
                 required
               />
-              <label for="department">Department</label>
+              <label htmlFor="department">Department</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -298,7 +298,7 @@ export default function Employee() {
                 name="designation"
                 required
               />
-              <label for="designation">Designation</label>
+              <label htmlFor="designation">Designation</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -308,7 +308,7 @@ export default function Employee() {
                 name="phone"
                 required
               />
-              <label for="phone">Phone Number</label>
+              <label htmlFor="phone">Phone Number</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -318,7 +318,7 @@ export default function Employee() {
                 name="address"
                 required
               />
-              <label for="address">Contact Adress</label>
+              <label htmlFor="address">Contact Adress</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -328,7 +328,7 @@ export default function Employee() {
                 name="accountNo"
                 required
               />
-              <label for="accountNo">Account Number</label>
+              <label htmlFor="accountNo">Account Number</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -338,7 +338,7 @@ export default function Employee() {
                 name="date"
                 required
               />
-              <label for="date">Date Joined</label>
+              <label htmlFor="date">Date Joined</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -348,7 +348,7 @@ export default function Employee() {
                 name="salary"
                 required
               />
-              <label for="salary">Basic Salary</label>
+              <label htmlFor="salary">Basic Salary</label>
             </div>
             <select className="form-select" name="employmentType">
               <option selected>Employment Type</option>

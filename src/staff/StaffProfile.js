@@ -243,7 +243,7 @@ export default function StaffProfile() {
         <h4>Password</h4>
         <div className="mt-4">
           <button
-            className="btn btn-primary"
+            className="btn btn-success"
             onClick={handlePasswordChangeModalShow}
           >
             Change Password
@@ -266,7 +266,7 @@ export default function StaffProfile() {
                 name="password"
                 required
               />
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -276,7 +276,7 @@ export default function StaffProfile() {
                 name="confirmpassword"
                 required
               />
-              <label for="confirmpassword">Confirm Password</label>
+              <label htmlFor="confirmpassword">Confirm Password</label>
             </div>
             <button className="btn btn-primary mt-4 d-flex justify-self-end ms-auto me-1">
               Change

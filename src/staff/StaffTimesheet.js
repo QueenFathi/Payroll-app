@@ -93,7 +93,7 @@ export default function StaffTimesheet() {
               <tbody>
                 <tr>
                   <td>
-                    <label for="monday" className="form-label">
+                    <label htmlFor="monday" className="form-label">
                       Monday
                     </label>
                   </td>
@@ -128,7 +128,7 @@ export default function StaffTimesheet() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="tuesday" className="form-label">
+                    <label htmlFor="tuesday" className="form-label">
                       Tuesday
                     </label>
                   </td>
@@ -163,7 +163,7 @@ export default function StaffTimesheet() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="wednesday" className="form-label">
+                    <label htmlFor="wednesday" className="form-label">
                       Wednesday
                     </label>
                   </td>
@@ -198,7 +198,7 @@ export default function StaffTimesheet() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="thursday" className="form-label">
+                    <label htmlFor="thursday" className="form-label">
                       Thursday
                     </label>
                   </td>
@@ -233,7 +233,7 @@ export default function StaffTimesheet() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="friday" className="form-label">
+                    <label htmlFor="friday" className="form-label">
                       Friday
                     </label>
                   </td>
@@ -268,7 +268,7 @@ export default function StaffTimesheet() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="saturday" className="form-label">
+                    <label htmlFor="saturday" className="form-label">
                       Saturday
                     </label>
                   </td>
@@ -303,7 +303,7 @@ export default function StaffTimesheet() {
                 </tr>
                 <tr>
                   <td>
-                    <label for="sunday" className="form-label">
+                    <label htmlFor="sunday" className="form-label">
                       Sunday
                     </label>
                   </td>
@@ -340,7 +340,7 @@ export default function StaffTimesheet() {
             </table>
           </div>
           <div className="my-4">
-            <button className="d-flex ms-auto me-lg-5 px-5 btn btn-primary">
+            <button className="d-flex ms-auto me-lg-5 px-5 btn btn-success">
               Submit
             </button>
           </div>

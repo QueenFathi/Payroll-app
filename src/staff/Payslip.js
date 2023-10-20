@@ -177,7 +177,7 @@ export default function Payslip() {
                 </div>
             </div>
             <div className='my-4'>
-                <button className='d-flex ms-auto me-lg-5 px-4 btn btn-primary'>Print Payslip</button>
+                <button className='d-flex ms-auto me-lg-5 px-4 btn btn-success'>Print Payslip</button>
             </div>
         </div>
     )

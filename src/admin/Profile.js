@@ -53,7 +53,7 @@ export default function Profile() {
   const DeleteFile = () => {
     const desertRef = ref(storage, `profile_picture/${auth.currentUser.email}`);
 
-    if (window.confirm("Are you sure you want to delete this staff?")) {
+    if (window.confirm("Are you sure you want to remove this picture?")) {
       deleteObject(desertRef)
         .then(() => {
           handleDeleteAvatar();
@@ -240,7 +240,7 @@ export default function Profile() {
        <h4>Password</h4>
         <div className="mt-4">
           <button
-            className="btn btn-primary"
+            className="btn btn-success"
             onClick={handlePasswordChangeModalShow}
           >
             Change Password
@@ -263,7 +263,7 @@ export default function Profile() {
                 name="password"
                 required
               />
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
             <div className="form-floating mb-2">
               <input
@@ -273,7 +273,7 @@ export default function Profile() {
                 name="confirmpassword"
                 required
               />
-              <label for="confirmpassword">Confirm Password</label>
+              <label htmlFor="confirmpassword">Confirm Password</label>
             </div>
             <button className="btn btn-primary mt-4 d-flex justify-self-end ms-auto me-1">
               Change

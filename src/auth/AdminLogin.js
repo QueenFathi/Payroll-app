@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { FaEnvelope, FaLock } from "react-icons/fa";
+import { FaEnvelope, FaHashtag, FaLock } from "react-icons/fa";
 import { auth } from "../config/fireConfig";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -24,43 +24,48 @@ export default function AdminLogin({ loggedin }) {
   }, [loggedin, navigate]);
   return (
     <div
-      className="container-lg d-flex align-items-center"
+      className="row h-100 d-flex justify-content-center align-items-center"
       style={{ minHeight: "100vh" }}
     >
-      <div className="form-signin w-100 m-auto">
-        <form onSubmit={handleLogin}>
-          <h1 className="h3 mb-4">Sign In</h1>
-          <div className="form-floating">
-            <input
-              type="email"
-              className="form-control"
-              id="floatingInput"
-              name="email"
-              required
-              placeholder="name@example.com"
-            />
-            <label for="floatingInput">
-              <FaEnvelope /> Email address
-            </label>
-          </div>
-          <div className="form-floating">
-            <input
-              type="password"
-              className="form-control"
-              id="floatingPassword"
-              name="password"
-              required
-              placeholder="Password"
-            />
-            <label for="floatingPassword">
-              <FaLock /> Password
-            </label>
-          </div>
+      <div className="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+        <div className="w-100 m-auto bg-light rounded p-4 p-sm-5">
+          <form onSubmit={handleLogin}>
+            <div className="d-flex align-items-center justify-content-between mb-4">
+              <h2 className="text-success fw-bold"><FaHashtag /> COMPANY</h2>
+              <h3 className="fw-bold">Sign In</h3>
+            </div>
+            <div className="form-floating mb-4">
+              <input
+                type="email"
+                className="form-control"
+                id="floatingInput"
+                name="email"
+                required
+                placeholder="name@example.com"
+              />
+              <label htmlFor="floatingInput">
+                <FaEnvelope /> Email address
+              </label>
+            </div>
+            <div className="form-floating mb-4">
+              <input
+                type="password"
+                className="form-control"
+                id="floatingPassword"
+                name="password"
+                required
+                placeholder="Password"
+              />
+              <label htmlFor="floatingPassword">
+                <FaLock /> Password
+              </label>
+            </div>
 
-          <button className="btn btn-primary w-100 py-2" type="submit">
-            Sign in
-          </button>
-        </form>
+            <button className="btn btn-success w-100 py-3" type="submit">
+              Sign in
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

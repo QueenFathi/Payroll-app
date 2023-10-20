@@ -8,6 +8,7 @@ import {
   FaUser,
   FaDoorOpen,
   FaUserFriends,
+  FaHashtag,
 } from "react-icons/fa";
 import { BsFillFileSpreadsheetFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
@@ -19,7 +20,9 @@ import { doc, getDoc } from "firebase/firestore";
 export default function Layout({ loggedin }) {
   const activeStyles = {
     fontWeight: "bold",
-    backgroundColor: "rgb(134, 239, 190)",
+    backgroundColor: "white",
+    borderLeft: "3px solid rgb(25, 135, 84)",
+    color: "rgb(25, 135, 84)",
   };
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
@@ -72,17 +75,17 @@ export default function Layout({ loggedin }) {
           <div className="mysidebar sidebar col-md-3 col-lg-2 p-0 bg-body-tertiary">
             <div
               className="offcanvas-md offcanvas-start bg-body-tertiary"
-              tabindex="-1"
+              tabIndex="-1"
               id="sidebarMenu"
               aria-labelledby="sidebarMenuLabel"
             >
               <div className="offcanvas-header">
-                <h3 className="offcanvas-title text-success" id="sidebarMenuLabel">
-                  Company Name
-                </h3>
+                <h2 className="offcanvas-title text-success fw-bold" id="sidebarMenuLabel">
+                  <FaHashtag /> COMPANY
+                </h2>
                 <button
                   type="button"
-                  className="border-0 bg-light"
+                  className="border-0 bg-white fs-5 px-3 py-2 rounded-circle"
                   data-bs-dismiss="offcanvas"
                   data-bs-target="#sidebarMenu"
                   aria-label="Close"
@@ -91,13 +94,13 @@ export default function Layout({ loggedin }) {
                 </button>
               </div>
               <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-                <h3 className="text-success p-3 d-none d-md-block">Company Name</h3>
+                <h2 className="text-success fw-bold p-3 d-none d-md-block"><FaHashtag /> COMPANY</h2>
                 <ul className="nav flex-column px-3 pt-2 fs-4">
                   <li className="nav-item mb-1">
                     <NavLink
                       to="/admin"
                       end
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
+                      className="rounded-end-pill nav-link d-flex align-items-center gap-2"
                       aria-current="page"
                       style={({ isActive }) => (isActive ? activeStyles : null)}
                     >
@@ -108,7 +111,7 @@ export default function Layout({ loggedin }) {
                   <li className="nav-item mb-1">
                     <NavLink
                       to="employee"
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
+                      className="rounded-end-pill nav-link d-flex align-items-center gap-2"
                       style={({ isActive }) => (isActive ? activeStyles : null)}
                     >
                       <FaUserFriends />
@@ -118,7 +121,7 @@ export default function Layout({ loggedin }) {
                   <li className="nav-item mb-1">
                     <NavLink
                       to="payroll"
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
+                      className="rounded-end-pill nav-link d-flex align-items-center gap-2"
                       style={({ isActive }) => (isActive ? activeStyles : null)}
                     >
                       <FaFileContract />
@@ -128,7 +131,7 @@ export default function Layout({ loggedin }) {
                   <li className="nav-item mb-1">
                     <NavLink
                       to="timesheet"
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
+                      className="rounded-end-pill nav-link d-flex align-items-center gap-2"
                       style={({ isActive }) => (isActive ? activeStyles : null)}
                     >
                       <BsFillFileSpreadsheetFill />
@@ -143,7 +146,7 @@ export default function Layout({ loggedin }) {
                   <li className="nav-item mb-1">
                     <NavLink
                       to="profile"
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2"
+                      className="rounded-end-pill nav-link d-flex align-items-center gap-2"
                       style={({ isActive }) => (isActive ? activeStyles : null)}
                     >
                       <FaUser />
@@ -153,7 +156,8 @@ export default function Layout({ loggedin }) {
                   <li className="nav-item mb-1">
                     <div
                       onClick={handleSignout}
-                      className="rounded-end-pill text-secondary nav-link d-flex align-items-center gap-2 nav-signout"
+                      className="rounded-end-pill nav-link d-flex align-items-center gap-2 nav-signout"
+                      style={{color: "rgb(108, 117, 125)"}}
                     >
                       <FaDoorOpen />
                       Sign out
@@ -163,22 +167,22 @@ export default function Layout({ loggedin }) {
               </div>
             </div>
           </div>
-          <main className="col-md-9 ms-sm-auto col-lg-10 p-0 m-0 px-md-4">
+          <div className="col-md-9 ms-sm-auto col-lg-10 p-0">
             <h2 className="d-block text-center p-3 shadow-sm d-block d-md-none">
               <Link
                 to="/"
-                className="text-success"
+                className="text-success fw-bold"
               >
-                Company Name
+                <FaHashtag /> COMPANY
               </Link>
             </h2>
             <header
-              className="navbar sticky-top flex-md-nowrap mt-2 pb-3 mb-4 border-bottom"
+              className="navbar sticky-top flex-md-nowrap p-3 mb-4 bg-light"
             >
               <ul className="flex-row navbar-nav col-md-3 col-lg-2 me-0 flex-grow-1">
                 <li className="nav-item text-nowrap d-md-none">
                   <button
-                    className="nav-link fs-5 px-3"
+                    className="nav-link fs-5 px-3 py-2 bg-white rounded-circle"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#sidebarMenu"
@@ -193,7 +197,7 @@ export default function Layout({ loggedin }) {
               <div className="pe-4">
                 <button
                   type="button"
-                  className="btn position-relative text-success rounded-circle fs-5 p-0"
+                  className="btn position-relative text-success rounded-circle px-3 py-2 bg-white fs-5"
                 >
                   <FaBell />
                   <span
@@ -202,7 +206,7 @@ export default function Layout({ loggedin }) {
                   >
                     0
                   </span>
-                </button>
+                </button> <span className="d-none d-lg-inline" style={{cursor: 'pointer'}}>Notifications</span>
               </div>
               <div className="dropdown pe-4 text-end align-self-center">
                 <Link
@@ -213,14 +217,14 @@ export default function Layout({ loggedin }) {
                   <img
                     src={imgSrc}
                     alt="mdo"
-                    width="25"
-                    height="25"
+                    width="30"
+                    height="30"
                     className="rounded-circle"
                   />
                   &nbsp;
                   {`${userData?.firstName} ${userData?.lastName}`}
                 </Link>
-                <ul className="dropdown-menu dropdown-menu-end text-small">
+                <ul className="dropdown-menu dropdown-menu-end bg-light border-0 text-small">
                   <li>
                     <Link to="profile" className="dropdown-item" href="#">
                       <FaUser /> Profile
@@ -240,14 +244,18 @@ export default function Layout({ loggedin }) {
                 </ul>
               </div>
             </header>
-            <div className="px-2 mb-4">
+            <main className="px-2 mb-4 px-md-4">
               <Outlet context={{ userData }} />
-            </div>
-          </main>
+            </main>
+          </div>
         </div>
       </div>
     </div>
   ) : (
-    <h1>Loading...</h1>
+    <div id="spinner" className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div className="spinner-border text-success" style={{width: "3rem", height: "3rem",}} role="status">
+        <span className="sr-only">...</span>
+      </div>
+    </div>
   );
 }

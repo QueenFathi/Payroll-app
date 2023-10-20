@@ -1,7 +1,7 @@
-// $primary: red;
+// $primary: #009CFF;
+// $light: #F3F6F9;
+// $dark: #191C24;
 
-// $theme-colors: (
-//     "primary": $primary,
-// );
+$enable-responsive-font-sizes: true;
 
-// @import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap.scss";
